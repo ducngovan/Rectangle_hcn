@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rectangle</title>
+</head>
+<body>
+<div>
+    <h1>Hinh chu nhat</h1>
+</div>
+<div>
+    chieu dai: <input type="text" id="leng" /> chieu rong: <input type="text" id="width" />
+    <button type="button" onclick="getData()">Sunmit</button>
+    <div>
+        <canvas id="myCanvas" width="1" height="1" style="border:2px solid red"></canvas>
+    </div>
+
+</div>
+<script>
+    function getData() {
+        let leng = parseInt(document.getElementById('leng').value);
+        let width = parseInt(document.getElementById('width').value);
+        let dai = leng*10;
+        let rong = width*10;
+        let hcn = new Rectangle();
+        let dt = hcn.getAcreage(leng,width);
+        let cv = hcn.getPerimeter(leng,width);
+        hcn.getPain(dai,rong);
+        alert("dien tich: "+dt+ "chu vi: "+cv);
+
+    }
+
+    function Rectangle() {
+        this.getAcreage = function (leng,width) {
+            let dt = leng * width;
+            return dt;
+        };
+        this.getPerimeter = function (leng,width) {
+            cv = 2 * (leng + width);
+            return cv;
+        };
+        this.getPain = function (dai,rong) {
+            document.getElementById('myCanvas').height=dai;
+            document.getElementById('myCanvas').width=rong;
+        };
+
+    }
+</script>
+</body>
+</html>
